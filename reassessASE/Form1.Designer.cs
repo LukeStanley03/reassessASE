@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.runbutton = new System.Windows.Forms.Button();
+            this.syntaxbutton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // runbutton
@@ -41,11 +42,22 @@
             this.runbutton.UseVisualStyleBackColor = true;
             this.runbutton.Click += new System.EventHandler(this.runbutton_Click);
             // 
+            // syntaxbutton
+            // 
+            this.syntaxbutton.Location = new System.Drawing.Point(136, 459);
+            this.syntaxbutton.Name = "syntaxbutton";
+            this.syntaxbutton.Size = new System.Drawing.Size(75, 23);
+            this.syntaxbutton.TabIndex = 1;
+            this.syntaxbutton.Text = "Syntax";
+            this.syntaxbutton.UseVisualStyleBackColor = true;
+            this.syntaxbutton.Click += new System.EventHandler(this.syntaxbutton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1310, 546);
+            this.Controls.Add(this.syntaxbutton);
             this.Controls.Add(this.runbutton);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -56,6 +68,7 @@
         #endregion
 
         private System.Windows.Forms.Button runbutton;
+        private System.Windows.Forms.Button syntaxbutton;
     }
 }
 
