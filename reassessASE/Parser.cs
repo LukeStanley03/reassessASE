@@ -650,5 +650,30 @@ namespace reassessASE
                 }
             }
         }
+        /// <summary>
+        /// Parses the string parameters into integers and checks for validity.
+        /// </summary>
+        /// <param name="parameters">string array of parameters</param>
+        /// <param name="command">string command</param>
+        /// <returns>integer array of parameters</returns>
+        /// <exception cref="GPLexception">exception thrown</exception>
+        private int[] ParseIntegerParameters(string[] parameters, string command, int lineNumber, Dictionary<string, int> variables)
+        {
+            int[] paramsInt = new int[parameters.Length];
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                // Check if the parameter is a variable
+                if (variables.TryGetValue(parameters[i], out int value))
+                {
+                    paramsInt[i] = value;
+                }
+                else if (!int.TryParse(parameters[i], out paramsInt[i]))
+                {
+                    throw new GPLexception($"Invalid parameter or undefined variable '{parameters[i]}' for {command} at line {lineNumber + 1}");
+                }
+            }
+            return paramsInt;
+        }
+
     }
 }
