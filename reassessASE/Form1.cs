@@ -57,6 +57,11 @@ namespace reassessASE
 
         }
 
+        /// <summary>
+        /// handles the click event for the open button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void openButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
