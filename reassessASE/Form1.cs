@@ -12,6 +12,11 @@ namespace reassessASE
 {
     public partial class Form1 : Form
     {
+        // Declarations
+
+        const int screenX = 640;
+        const int screenY = 480;
+
 
         public Form1()
         {
