@@ -52,6 +52,11 @@ namespace reassessASE
 
         }
 
+        /// <summary>
+        /// Displays the graphics
+        /// </summary>
+        /// <param name="sender">The source of the event</param>
+        /// <param name="e">instance containing the graphics context</param>
         private void outputWindow_Paint(object sender, PaintEventArgs e)
         {
             //get graphics context of the form
