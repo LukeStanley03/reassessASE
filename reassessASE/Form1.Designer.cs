@@ -89,6 +89,7 @@
             this.commandLine.Name = "commandLine";
             this.commandLine.Size = new System.Drawing.Size(244, 22);
             this.commandLine.TabIndex = 4;
+            this.commandLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.commandLine_KeyDown);
             // 
             // richTextBox1
             // 

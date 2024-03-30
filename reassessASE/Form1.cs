@@ -123,6 +123,17 @@ namespace reassessASE
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
+            
+        }
+
+        private void commandLine_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Processing only if the user has clicked the Enter key
+            if (e.KeyCode != Keys.Enter)
+            {
+                return;
+            }
         }
     }
 }
