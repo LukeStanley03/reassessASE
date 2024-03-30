@@ -315,7 +315,110 @@ namespace reassessASE
                 }
             }
         }
-    }
+            /// <summary>
+            /// Finds the index of the endwhile that corresponds to the while
+            /// </summary>
+            /// <param name="lines"></param>
+            /// <param name="startLineIndex"></param>
+            /// <returns></returns>
+            /// <exception cref="GPLexception"></exception>
+            private int FindIndexOfEndWhile(string[] lines, int startLineIndex)
+            {
+                int openLoops = 1;
+                for (int i = startLineIndex + 1; i < lines.Length; i++)
+                {
+                    if (lines[i].Trim().StartsWith("while")) openLoops++;
+                    if (lines[i].Trim().StartsWith("endwhile"))
+                    {
+                        openLoops--;
+                        if (openLoops == 0) return i;
+                    }
+                }
+                throw new GPLexception("No matching endwhile found");
+            }
+
+
+            /// <summary>
+            /// Gets the loop condition, look it up in the dictionary using the line number
+            /// </summary>
+            /// <param name="lineNumber">line number</param>
+            /// <returns>condition</returns>
+            /// <exception cref="GPLexception">exception</exception>
+            private string GetLoopCondition(int lineNumber)
+            {
+                if (loopConditions.TryGetValue(lineNumber, out string condition))
+                {
+                    return condition;
+                }
+                else
+                {
+                    throw new GPLexception($"No loop condition found for line number: {lineNumber + 1}");
+                }
+            }
+
+
+            /// <summary>
+            /// Takes condition string, breaks it into parts to parse the operands
+            /// </summary>
+            /// <param name="condition">condition string in the if statement</param>
+            /// <returns></returns>
+            /// <exception cref="GPLexception"></exception>
+            private bool EvaluateCondition(string condition)
+            {
+                // Example condition format: "num1 < num2"
+                string[] tokens = condition.Split(' ');
+
+                if (tokens.Length != 3)
+                {
+                    throw new GPLexception("Invalid condition format");
+                }
+
+                // Extract operands and operator
+                string leftOperand = tokens[0];
+                string operatorToken = tokens[1];
+                string rightOperand = tokens[2];
+
+                // Try to get values for variables, if they are variables
+                int leftValue;
+                int rightValue;
+
+                if (!int.TryParse(leftOperand, out leftValue))
+                {
+                    if (!variables.TryGetValue(leftOperand, out leftValue))
+                    {
+                        throw new GPLexception($"Undefined variable '{leftOperand}' in condition");
+                    }
+                }
+
+                if (!int.TryParse(rightOperand, out rightValue))
+                {
+                    if (!variables.TryGetValue(rightOperand, out rightValue))
+                    {
+                        throw new GPLexception($"Undefined variable '{rightOperand}' in condition");
+                    }
+                }
+
+                // Perform the comparison based on the operator
+                switch (operatorToken)
+                {
+                    case "<":
+                        return leftValue < rightValue;
+                    case ">":
+                        return leftValue > rightValue;
+                    case "==":
+                        return leftValue == rightValue;
+                    case "!=":
+                        return leftValue != rightValue;
+                    case "<=":
+                        return leftValue <= rightValue;
+                    case ">=":
+                        return leftValue >= rightValue;
+                    // Add more operators as needed
+                    default:
+                        throw new GPLexception($"Invalid operator '{operatorToken}' in condition");
+                }
+            }
+
         }
     }
 }
