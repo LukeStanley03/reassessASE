@@ -173,7 +173,14 @@ namespace reassessASE
                     // Handle the skipping logic if necessary
                     // For example, you might want to log a message or simply continue
                 }
+
+                if (!string.IsNullOrEmpty(error))
+                {
+                    // If there's an error, display it
+                    writeString(error);
+                }
             }
+        }
         }
     }
 }
