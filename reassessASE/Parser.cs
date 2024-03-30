@@ -230,6 +230,39 @@ namespace reassessASE
             string command = line.Split(new[] { ' ', '(' }, StringSplitOptions.RemoveEmptyEntries)[0].ToLower();
             return command == "if" || command == "while";
         }
+        /// <summary>
+        /// Checks whether the variable is operation related
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
+        private bool IsVariableRelatedOperation(string line)
+        {
+            // This method should return true if the line is related to variable assignment or manipulation
+            return line.Contains("=");
+        }
+
+        /// <summary>
+        /// Takes a while line and extract condition it
+        /// </summary>
+        /// <param name="whileLine"></param>
+        /// <returns></returns>
+        /// <exception cref="GPLexception"></exception>
+        private string ExtractConditionFromWhile(string whileLine)
+        {
+            int indexOfWhile = whileLine.IndexOf("while");
+            if (indexOfWhile == -1) throw new GPLexception("Not a while line");
+
+            // Assumes condition starts after "while "
+            return whileLine.Substring(indexOfWhile + "while".Length).Trim();
+        }
+
+
+        /// <summary>
+        /// Executes a while loop
+        /// </summary>
+        /// <param name="lines"></param>
+        /// <param name="currentLineIndex"></param>
+        /// <exception cref="GPLexception"></exception>
 
     }
 }
