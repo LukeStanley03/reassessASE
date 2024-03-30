@@ -211,5 +211,25 @@ namespace reassessASE
         /// </summary>
         /// <param name="line"></param>
         /// <returns></returns>
+
+        private bool IsCanvasCommand(string line)
+        {
+            string command = line.Split(' ')[0].ToLower();
+            return validCommands.Contains(command);
+        }
+
+        /// <summary>
+        /// Checks whether the command is the control structure or not
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
+        private bool IsControlStructure(string line)
+        {
+            // This method should return true if the line is a control structure such as if, while, etc.
+            // For now, let's assume it's just checking for 'if' and 'while'
+            string command = line.Split(new[] { ' ', '(' }, StringSplitOptions.RemoveEmptyEntries)[0].ToLower();
+            return command == "if" || command == "while";
+        }
+
     }
 }
