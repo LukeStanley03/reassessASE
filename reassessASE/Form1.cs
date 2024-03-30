@@ -136,6 +136,12 @@ namespace reassessASE
             }
 
             e.SuppressKeyPress = true; // Suppress the beep sound when the Enter is pressed
+
+            // Get the input from the user
+            String input = commandLine.Text.Trim();
+
+            // Clear the command line
+            commandLine.Text = "";
         }
     }
 }
