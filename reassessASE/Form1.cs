@@ -87,6 +87,19 @@ namespace reassessASE
                 Title = "Save GPL File",
                 Filter = "GPL File (*.gpl)|*.gpl"
             };
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    FileHandler fileHandler = new FileHandler();
+                    fileHandler.WriteToFile(saveFileDialog.FileName, programWindow.Text);
+                }
+                catch (GPLexception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
