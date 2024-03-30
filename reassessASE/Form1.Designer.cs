@@ -30,11 +30,12 @@
         {
             this.runbutton = new System.Windows.Forms.Button();
             this.syntaxbutton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // runbutton
             // 
-            this.runbutton.Location = new System.Drawing.Point(44, 459);
+            this.runbutton.Location = new System.Drawing.Point(634, 459);
             this.runbutton.Name = "runbutton";
             this.runbutton.Size = new System.Drawing.Size(75, 23);
             this.runbutton.TabIndex = 0;
@@ -44,7 +45,7 @@
             // 
             // syntaxbutton
             // 
-            this.syntaxbutton.Location = new System.Drawing.Point(136, 459);
+            this.syntaxbutton.Location = new System.Drawing.Point(539, 459);
             this.syntaxbutton.Name = "syntaxbutton";
             this.syntaxbutton.Size = new System.Drawing.Size(75, 23);
             this.syntaxbutton.TabIndex = 1;
@@ -52,11 +53,21 @@
             this.syntaxbutton.UseVisualStyleBackColor = true;
             this.syntaxbutton.Click += new System.EventHandler(this.syntaxbutton_Click);
             // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(358, 458);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 2;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1310, 546);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.syntaxbutton);
             this.Controls.Add(this.runbutton);
             this.Name = "Form1";
@@ -69,6 +80,7 @@
 
         private System.Windows.Forms.Button runbutton;
         private System.Windows.Forms.Button syntaxbutton;
+        private System.Windows.Forms.Button saveButton;
     }
 }
 
