@@ -263,6 +263,42 @@ namespace reassessASE
         /// <param name="lines"></param>
         /// <param name="currentLineIndex"></param>
         /// <exception cref="GPLexception"></exception>
+        /// 
+        private void ExecuteWhileLoop(string[] lines, ref int currentLineIndex)
+        {
+            int loopStartIndex = currentLineIndex;
+            string condition = ExtractConditionFromWhile(lines[currentLineIndex]);
 
-    }
-}
+            // Loop until the condition is false
+            while (EvaluateCondition(condition))
+            {
+                // Increment the line index to move to the first command inside the loop
+                currentLineIndex++;
+
+                // Execute each line in the loop until endwhile is reached
+                while (!lines[currentLineIndex].Trim().StartsWith("endwhile"))
+                {
+                    bool skipExecution; // Used to indicate if the execution should skip to endwhile
+                    int newLineIndex = currentLineIndex;
+                    string commandResult = ParseCommand(lines, currentLineIndex, ref newLineIndex, out skipExecution);
+
+                    // Handle any errors that might have occurred in command execution
+                    if (!string.IsNullOrEmpty(commandResult))
+                    {
+                        throw new GPLexception($"Error at line {currentLineIndex + 1}: {commandResult}");
+                    }
+
+                    if (skipExecution)
+                    {
+                        // Find the index of endwhile that matches the current while loop
+                        currentLineIndex = FindIndexOfEndWhile(lines, loopStartIndex);
+                        break; // Exit the inner loop to evaluate the while condition again
+                    }
+                    else
+                    {
+                        currentLineIndex++; // Move to the next command inside the loop
+                    }
+                }
+
+            }
+        }
