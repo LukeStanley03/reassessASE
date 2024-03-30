@@ -732,6 +732,36 @@ namespace reassessASE
                     throw new GPLexception($"Unrecognized command: {command}");
             }
         }
+        /// <summary>
+        /// Handles commands which do not require parameters
+        /// </summary>
+        /// <param name="command"></param>
+        private void ExecuteNonParameterCommand(string command)
+        {
+            switch (command)
+            {
+                case "clear":
+                    MyCanvas.Clear();
+                    break;
+                case "reset":
+                    MyCanvas.Reset();
+                    MyCanvas.updateCursor();
+                    break;
+                case "red":
+                    MyCanvas.RedColour();
+                    break;
+                case "green":
+                    MyCanvas.GreenColour();
+                    break;
+                case "blue":
+                    MyCanvas.BlueColour();
+                    break;
+                case "black":
+                    MyCanvas.BlackColour();
+                    break;
+                    // Add more non-parameter commands as needed
+            }
+        }
 
     }
 }
