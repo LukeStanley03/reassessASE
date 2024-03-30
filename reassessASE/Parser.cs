@@ -50,6 +50,13 @@ namespace reassessASE
         //Dictionary to map method names to their definitions
         private Dictionary<string, MethodDefinition> methodDefinitions = new Dictionary<string, MethodDefinition>();
 
-
+        /// <summary>
+        /// Contsructor to set up the canvas
+        /// </summary>
+        /// <param name="canvas">name of canvas</param>
+        public Parser(Canvas canvas)
+        {
+            MyCanvas = canvas;
+        }
     }
 }
