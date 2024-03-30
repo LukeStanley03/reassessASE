@@ -220,7 +220,35 @@ namespace reassessASE
                 Refresh();
             }
         }
+            private void writeString(String text)
+            {
+                //Clear the output bitmap
+                g.Clear(background_colour);
+
+                //Create font and brush
+                Font drawFont = new Font("Arial", 10);
+                SolidBrush drawBrush = new SolidBrush(Color.Black);
+
+                //Set format of string
+                StringFormat drawFormat = new StringFormat();
+                drawFormat.FormatFlags = StringFormatFlags.NoClip;
+
+                // Draw the string onto the bitmap
+                g.DrawString(text, drawFont, drawBrush, 10, 10, drawFormat);
+                // Split the text into lines
+                string[] lines = text.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+                float y = 0;
+                foreach (var line in lines)
+                {
+                    g.DrawString(line, drawFont, drawBrush, new PointF(0, y));
+                    y += drawFont.Height;
+                }
+
+                // Assign the updated bitmap to the outputWindow to display the text
+                outputWindow.Image = OutputBitmap;
+            }
+        }
     }
-}
+
  
 
