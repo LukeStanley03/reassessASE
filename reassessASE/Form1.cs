@@ -179,8 +179,18 @@ namespace reassessASE
                     // If there's an error, display it
                     writeString(error);
                 }
+
+                // Clear the command line after processing the command
+                commandLine.Text = "";
+
+                // Refresh the outputWindow
+                outputWindow.Invalidate();
+
+                // Signify that something has been drawn and window system should update the display
+                Refresh();
             }
         }
         }
     }
-}
+ }
+
