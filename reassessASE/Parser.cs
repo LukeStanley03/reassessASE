@@ -510,6 +510,33 @@ namespace reassessASE
             return errors.ToString();
         }
 
+        /// <summary>
+        /// processes all lines and calls ParseCommand, collecting any errors
+        /// </summary>
+        /// <param name="program">big input string in the program window</param>
+        /// <returns>Appended error message</returns>
+        public string CheckSyntax(string program)
+        {
+            var lines = program.Split('\n');
+            var errorMessages = new StringBuilder();
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                bool skipExecution = false;
+
+                // Declare newLineIndex and initialize it with the current index
+                int newLineIndex = i;
+
+                // Pass the entire lines array and the current index
+                string error = ParseCommand(lines, i, ref newLineIndex, out skipExecution);
+                if (!string.IsNullOrEmpty(error))
+                {
+                    errorMessages.AppendLine(error);
+                }
+            }
+
+            return errorMessages.ToString();
+        }
 
     }
 }
