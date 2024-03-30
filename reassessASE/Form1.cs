@@ -26,5 +26,10 @@ namespace reassessASE
         {
 
         }
+
+        private void outputWindow_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

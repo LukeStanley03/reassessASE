@@ -35,6 +35,8 @@
             this.commandLine = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.outputWindow = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.outputWindow)).BeginInit();
             this.SuspendLayout();
             // 
             // runbutton
@@ -98,11 +100,21 @@
             this.richTextBox2.TabIndex = 6;
             this.richTextBox2.Text = "";
             // 
+            // outputWindow
+            // 
+            this.outputWindow.Location = new System.Drawing.Point(718, 95);
+            this.outputWindow.Name = "outputWindow";
+            this.outputWindow.Size = new System.Drawing.Size(500, 335);
+            this.outputWindow.TabIndex = 7;
+            this.outputWindow.TabStop = false;
+            this.outputWindow.Paint += new System.Windows.Forms.PaintEventHandler(this.outputWindow_Paint);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1310, 546);
+            this.Controls.Add(this.outputWindow);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.commandLine);
@@ -112,6 +124,7 @@
             this.Controls.Add(this.runbutton);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.outputWindow)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,6 +139,7 @@
         private System.Windows.Forms.TextBox commandLine;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.PictureBox outputWindow;
     }
 }
 
