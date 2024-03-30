@@ -64,7 +64,17 @@ namespace reassessASE
 
         private void syntaxbutton_Click(object sender, EventArgs e)
         {
+            string program = programWindow.Text;
+            string errors = MyParser.ProcessProgram(program);
 
+            if (string.IsNullOrEmpty(errors))
+            {
+                errors = "No syntax errors found.";
+            }
+
+            // Use the writeString method or another method to display errors
+            writeString(errors);
+            outputWindow.Invalidate(); // Refresh the output window
         }
 
         /// <summary>
