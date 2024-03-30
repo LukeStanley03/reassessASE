@@ -102,6 +102,7 @@
             // 
             // outputWindow
             // 
+            this.outputWindow.BackColor = System.Drawing.SystemColors.ControlDark;
             this.outputWindow.Location = new System.Drawing.Point(718, 95);
             this.outputWindow.Name = "outputWindow";
             this.outputWindow.Size = new System.Drawing.Size(500, 335);
