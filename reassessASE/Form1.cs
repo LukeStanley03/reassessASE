@@ -79,5 +79,14 @@ namespace reassessASE
                 }
             }
         }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Title = "Save GPL File",
+                Filter = "GPL File (*.gpl)|*.gpl"
+            };
+        }
     }
 }
