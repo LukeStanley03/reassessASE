@@ -36,6 +36,7 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.outputWindow = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.outputWindow)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,11 +111,21 @@
             this.outputWindow.TabStop = false;
             this.outputWindow.Paint += new System.Windows.Forms.PaintEventHandler(this.outputWindow_Paint);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(715, 465);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 16);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Command Line";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1310, 546);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.outputWindow);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.richTextBox1);
@@ -141,6 +152,7 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.PictureBox outputWindow;
+        private System.Windows.Forms.Label label1;
     }
 }
 
