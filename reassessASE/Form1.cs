@@ -54,6 +54,12 @@ namespace reassessASE
 
         private void outputWindow_Paint(object sender, PaintEventArgs e)
         {
+            //get graphics context of the form
+            var graphics = e.Graphics;
+
+            //put the off screen bitmaps on the form
+            graphics.DrawImageUnscaled(OutputBitmap, x: 0, y: 0);
+            graphics.DrawImageUnscaled(CursorBitmap, x: 0, y: 0);
 
         }
 
