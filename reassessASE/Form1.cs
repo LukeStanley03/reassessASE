@@ -23,6 +23,14 @@ namespace reassessASE
         Canvas MyCanvas;
         Parser MyParser;
 
+        Color background_colour = Color.Gray;
+
+
+        /// <summary>
+        /// Initialises a new instance of <see cref="Form1"/>
+        /// Initialises the output bitmap and the canvas for drawing
+        /// </summary>
+
         public Form1()
         {
             InitializeComponent();
