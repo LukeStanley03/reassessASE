@@ -34,6 +34,12 @@ namespace reassessASE
         public Form1()
         {
             InitializeComponent();
+            g = Graphics.FromImage(OutputBitmap);
+            //Class for handling the drawing, pass the drawing surface to it
+            MyCanvas = new Canvas(this, Graphics.FromImage(OutputBitmap), Graphics.FromImage(CursorBitmap));
+            MyParser = new Parser(MyCanvas);
+            MyCanvas.updateCursor();
+            g.Clear(background_colour);
         }
 
         private void runbutton_Click(object sender, EventArgs e)
