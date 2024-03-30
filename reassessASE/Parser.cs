@@ -623,6 +623,32 @@ namespace reassessASE
 
             return string.Empty;
         }
-
+        /// <summary>
+        /// Handles method definitions and invocations
+        /// </summary>
+        /// <param name="lines"></param>
+        public void ProcessCommands(string[] lines)
+        {
+            int currentLineIndex = 0;
+            while (currentLineIndex < lines.Length)
+            {
+                string line = lines[currentLineIndex].Trim();
+                if (line.StartsWith("method"))
+                {
+                    ParseMethodDefinition(lines, ref currentLineIndex);
+                }
+                else if (line.Contains("(") && line.Contains(")")) // Simple check for method invocation
+                {
+                    // Pass the current line index as the method invocation line number
+                    InvokeMethod(line, variables, currentLineIndex + 1); // Assuming line numbers are 1-based
+                    currentLineIndex++;
+                }
+                else
+                {
+                    // Handle other types of commands
+                    currentLineIndex++;
+                }
+            }
+        }
     }
 }
