@@ -476,6 +476,40 @@ namespace reassessASE
 
             return false; // Unsupported expression format
         }
+        /// <summary>
+        /// Process the program, either running it or just syntax check it
+        /// </summary>
+        /// <param name="program">program string</param>
+        public string ProcessProgram(string program)
+        {
+            string[] lines = program.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            StringBuilder errors = new StringBuilder();
+
+            int i = 0;
+            while (i < lines.Length)
+            {
+                bool skipExecution = false;
+                int newLineIndex = i;
+                string result = ParseCommand(lines, i, ref newLineIndex, out skipExecution);
+
+                if (!string.IsNullOrEmpty(result))
+                {
+                    errors.AppendLine(result);
+                }
+
+                if (skipExecution)
+                {
+                    i = newLineIndex; // Use the new line index if skipping
+                }
+                else
+                {
+                    i++; // Otherwise, go to the next line
+                }
+            }
+
+            return errors.ToString();
+        }
+
 
     }
 }
