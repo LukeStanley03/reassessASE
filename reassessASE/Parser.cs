@@ -418,7 +418,64 @@ namespace reassessASE
                         throw new GPLexception($"Invalid operator '{operatorToken}' in condition");
                 }
             }
+        /// <summary>
+        /// Handles arithmetic operations
+        /// </summary>
+        /// <param name="expression">string operation</param>
+        /// <param name="result">input result</param>
+        /// <returns>true if supported expession or false if unsupported expression</returns>
+        private bool EvaluateExpression(string expression, out int result)
+        {
+            result = 0;
 
+            // Split the expression into parts (e.g., 'radius + 10' -> ['radius', '+', '10'])
+            var tokens = expression.Split(' ');
+            if (tokens.Length == 3) // Simple binary expressions like 'a + b'
+            {
+                int leftOperand, rightOperand;
+                string operatorToken = tokens[1];
+
+                // Retrieve or parse the left operand
+                if (!int.TryParse(tokens[0], out leftOperand))
+                {
+                    if (!variables.TryGetValue(tokens[0], out leftOperand))
+                        return false; // Left operand is not a valid number or variable
+                }
+
+                // Retrieve or parse the right operand
+                if (!int.TryParse(tokens[2], out rightOperand))
+                {
+                    if (!variables.TryGetValue(tokens[2], out rightOperand))
+                        return false; // Right operand is not a valid number or variable
+                }
+
+                // Perform the arithmetic operation
+                switch (operatorToken)
+                {
+                    case "+":
+                        result = leftOperand + rightOperand;
+                        return true;
+                    // Add cases for '-', '*', '/' as needed
+                    case "-":
+                        result = leftOperand - rightOperand;
+                        return true;
+                    case "*":
+                        result = leftOperand * rightOperand;
+                        return true;
+                    case "/":
+                        result = leftOperand / rightOperand;
+                        return true;
+                    default:
+                        return false; // Unsupported operator
+                }
+            }
+            else if (tokens.Length == 1) // Single value (variable or number)
+            {
+                return int.TryParse(expression, out result) || variables.TryGetValue(expression, out result);
+            }
+
+            return false; // Unsupported expression format
         }
+
     }
 }
