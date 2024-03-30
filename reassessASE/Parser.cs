@@ -570,6 +570,59 @@ namespace reassessASE
             // Increment past the "endmethod" line
             currentLineIndex++;
         }
+        /// <summary>
+        /// Handles the method invocation to execute the method body
+        /// </summary>
+        /// <param name="line"></param>
+        /// <param name="globalVariables"></param>
+        /// <param name="methodStartLineNumber"></param>
+        /// <returns></returns>
+        public string InvokeMethod(string line, Dictionary<string, int> globalVariables, int methodStartLineNumber)
+        {
+            // Extract method name and arguments
+            string[] parts = line.Split(new char[] { '(', ')', ',' }, StringSplitOptions.RemoveEmptyEntries);
+            string methodName = parts[0].Trim();
+            List<int> arguments = new List<int>();
+
+            try
+            {
+                arguments = parts.Skip(1).Select(arg => int.Parse(arg.Trim())).ToList();
+            }
+            catch (FormatException)
+            {
+                return $"Error: Invalid format for parameters in method call '{line}'.";
+            }
+
+            if (methodDefinitions.TryGetValue(methodName, out MethodDefinition method))
+            {
+                if (arguments.Count != method.Parameters.Count)
+                {
+                    return $"Error: Method '{methodName}' expects {method.Parameters.Count} parameters, got {arguments.Count}.";
+                }
+
+                var localVariables = new Dictionary<string, int>(globalVariables);
+
+                for (int i = 0; i < method.Parameters.Count; i++)
+                {
+                    localVariables[method.Parameters[i]] = arguments[i];
+                }
+
+                foreach (string command in method.Body)
+                {
+                    string result = ExecuteCommand(command, methodStartLineNumber, localVariables);
+                    if (!string.IsNullOrEmpty(result))
+                    {
+                        return result;
+                    }
+                }
+            }
+            else
+            {
+                return $"Error: Method '{methodName}' is not defined.";
+            }
+
+            return string.Empty;
+        }
 
     }
 }
