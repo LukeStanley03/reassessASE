@@ -64,6 +64,20 @@ namespace reassessASE
                 Title = "Open GPL File",
                 Filter = "GPL File (*.gpl)|*.gpl"
             };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    FileHandler fileHandler = new FileHandler();
+                    string fileContent = fileHandler.ReadFromFile(openFileDialog.FileName);
+                    programWindow.Text = fileContent;
+                }
+                catch (GPLexception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
