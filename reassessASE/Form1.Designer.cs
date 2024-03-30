@@ -80,6 +80,7 @@
             this.openButton.TabIndex = 3;
             this.openButton.Text = "Open";
             this.openButton.UseVisualStyleBackColor = true;
+            this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
             // commandLine
             // 

@@ -56,5 +56,14 @@ namespace reassessASE
         {
 
         }
+
+        private void openButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Title = "Open GPL File",
+                Filter = "GPL File (*.gpl)|*.gpl"
+            };
+        }
     }
 }
