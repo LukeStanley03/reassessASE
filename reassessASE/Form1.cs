@@ -134,6 +134,8 @@ namespace reassessASE
             {
                 return;
             }
+
+            e.SuppressKeyPress = true; // Suppress the beep sound when the Enter is pressed
         }
     }
 }
