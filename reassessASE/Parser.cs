@@ -537,6 +537,39 @@ namespace reassessASE
 
             return errorMessages.ToString();
         }
+        /// <summary>
+        /// Parses and stores a method definition
+        /// </summary>
+        /// <param name="lines"></param>
+        /// <param name="currentLineIndex"></param>
+        private void ParseMethodDefinition(string[] lines, ref int currentLineIndex)
+        {
+            // Assume currentLineIndex is the index of the "method" line
+            string methodLine = lines[currentLineIndex].Trim();
+            string[] parts = methodLine.Substring("method".Length).Split(new[] { '(', ')', ' ', ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+            string methodName = parts[0];
+            List<string> parameters = parts.Skip(1).ToList(); // Skip method name to get parameters
+            List<string> body = new List<string>();
+
+            // Increment currentLineIndex to start reading the body
+            currentLineIndex++;
+            while (currentLineIndex < lines.Length && !lines[currentLineIndex].Trim().StartsWith("endmethod"))
+            {
+                body.Add(lines[currentLineIndex].Trim());
+                currentLineIndex++;
+            }
+
+
+            // Pass the parameters directly to the constructor
+            MethodDefinition methodDefinition = new MethodDefinition(methodName, parameters, body);
+
+
+            methodDefinitions[methodName] = methodDefinition;
+
+            // Increment past the "endmethod" line
+            currentLineIndex++;
+        }
 
     }
 }
