@@ -674,6 +674,64 @@ namespace reassessASE
             }
             return paramsInt;
         }
+        /// <summary>
+        /// Handles commands with integer parameters. It uses the parsed integers to execute the command.
+        /// </summary>
+        /// <param name="command">string command</param>
+        /// <param name="paramsInt">integer array of parameters</param>
+        /// <exception cref="GPLexception">exception thrown</exception>
+        private void ExecuteCommandWithParams(string command, int[] paramsInt)
+        {
+            switch (command)
+            {
+                case "moveto":
+                    if (paramsInt.Length != 2)
+                        throw new GPLexception("moveto expects 2 parameters");
+                    MyCanvas.MoveTo(paramsInt[0], paramsInt[1]);
+                    MyCanvas.updateCursor();
+                    break;
+
+                case "drawto":
+                    if (paramsInt.Length != 2)
+                        throw new GPLexception("drawto expects 2 parameters");
+                    MyCanvas.DrawTo(paramsInt[0], paramsInt[1]);
+                    MyCanvas.updateCursor();
+                    break;
+
+                case "circle":
+                    if (paramsInt.Length != 1)
+                        throw new GPLexception("circle expects 1 parameter");
+                    MyCanvas.Circle(paramsInt[0]);
+                    break;
+
+                case "square":
+                    if (paramsInt.Length != 1)
+                        throw new GPLexception("square expects 1 parameter");
+                    MyCanvas.Square(paramsInt[0]);
+                    break;
+
+                case "rectangle":
+                    if (paramsInt.Length != 2)
+                        throw new GPLexception("rectangle expects 2 parameters");
+                    MyCanvas.Rectangle(paramsInt[0], paramsInt[1]);
+                    break;
+
+                case "triangle":
+                    if (paramsInt.Length != 2)
+                        throw new GPLexception("triangle expects 2 parameters");
+                    MyCanvas.Triangle(paramsInt[0], paramsInt[1]);
+                    break;
+
+                case "colour":
+                    if (paramsInt.Length != 3)
+                        throw new GPLexception("colour expects 3 parameters");
+                    MyCanvas.SetColour(paramsInt[0], paramsInt[1], paramsInt[2]);
+                    break;
+
+                default:
+                    throw new GPLexception($"Unrecognized command: {command}");
+            }
+        }
 
     }
 }
