@@ -62,6 +62,11 @@ namespace reassessASE
             Refresh();
         }
 
+        /// <summary>
+        /// handles the click event for the syntax button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void syntaxbutton_Click(object sender, EventArgs e)
         {
             string program = programWindow.Text;
