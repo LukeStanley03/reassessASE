@@ -762,6 +762,92 @@ namespace reassessASE
                     // Add more non-parameter commands as needed
             }
         }
+        /// <summary>
+        /// Handles the execution of a command
+        /// </summary>
+        /// <param name="commandLine">command parameter</param>
+        /// <param name="lineNumber"></param>
+        /// <returns></returns>
+        /// <exception cref="GPLexception"></exception>
+        private string ExecuteCommand(string commandLine, int lineNumber, Dictionary<string, int> variables)
+        {
+            // Split the commandLine into the command and parameters.
+            string[] parts = commandLine.Split(new[] { ' ' }, 2);
 
+            if (parts.Length == 0)
+            {
+                return $"No command entered at line {lineNumber + 1}";
+            }
+
+            string command = parts[0].ToLower();
+            string parameterSection = parts.Length > 1 ? parts[1] : null;
+
+            try
+            {
+                // Check if the command is known and handle it accordingly
+                if (!validCommands.Contains(command))
+                {
+                    return $"Unknown command '{command}' at line {lineNumber + 1}";
+                }
+
+                // Handle non-parameter commands
+                if (command.Equals("clear") || command.Equals("reset") ||
+                    command.Equals("red") || command.Equals("green") ||
+                    command.Equals("blue") || command.Equals("black"))
+                {
+                    if (parts.Length > 1)
+                    {
+                        return $"'{command}' does not expect any parameters at line {lineNumber + 1}";
+                    }
+
+                    // Execute the command that does not require any parameters
+                    ExecuteNonParameterCommand(command);
+                }
+                else if (command.Equals("fill"))
+                {
+                    // Handle the 'fill' command that expects a single string parameter
+                    if (parts.Length != 2)
+                    {
+                        return $"Error: '{command}' expects 1 parameter at line {lineNumber + 1}";
+                    }
+                    MyCanvas.SetFill(parts[1]);
+                }
+                else if (command.Equals("rectangle") || command.Equals("circle") || command.Equals("triangle"))
+                {
+                    // Handle commands that require integer parameters
+                    if (parameterSection == null)
+                    {
+                        return $"'{command}' expects parameters at line {lineNumber + 1}";
+                    }
+                    string[] parameterParts = parameterSection.Split(',');
+                    try
+                    {
+                        int[] paramsInt = ParseIntegerParameters(parameterParts, command, lineNumber, variables);
+                        ExecuteCommandWithParams(command, paramsInt);
+                    }
+                    catch (GPLexception ex)
+                    {
+                        return $"Error executing command '{command}' at line {lineNumber + 1}: {ex.Message}";
+                    }
+                }
+                else
+                {
+                    // Handle other commands that require integer parameters
+                    if (parameterSection == null)
+                    {
+                        return $"'{command}' expects parameters at line {lineNumber + 1}";
+                    }
+                    string[] parameterParts = parameterSection.Split(',');
+                    int[] paramsInt = ParseIntegerParameters(parameterParts, command, lineNumber, variables);
+                    ExecuteCommandWithParams(command, paramsInt);
+                }
+            }
+            catch (GPLexception ex)
+            {
+                return $"Error executing command '{command}' at line {lineNumber + 1}: {ex.Message}";
+            }
+
+            return string.Empty; // No error
+        }
     }
 }
