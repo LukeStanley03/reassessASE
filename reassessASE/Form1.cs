@@ -17,6 +17,11 @@ namespace reassessASE
         const int screenX = 640;
         const int screenY = 480;
 
+        Bitmap OutputBitmap = new Bitmap(screenX, screenY); //Bitmap to draw on which will be displayed in the outputWindow
+        Bitmap CursorBitmap = new Bitmap(screenX, screenY); //overlay bitmap for cursor
+        Graphics g;
+        Canvas MyCanvas;
+        Parser MyParser;
 
         public Form1()
         {
