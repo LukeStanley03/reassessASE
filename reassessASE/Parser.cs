@@ -300,5 +300,22 @@ namespace reassessASE
                     }
                 }
 
+                // Update the condition to evaluate if the loop should continue
+                condition = GetLoopCondition(loopStartIndex);
+
+                // Loop back to the start of the while loop if the condition is still true
+                if (EvaluateCondition(condition))
+                {
+                    currentLineIndex = loopStartIndex;
+                }
+                else
+                {
+                    // Move past the endwhile if the loop is done
+                    currentLineIndex++;
+                }
             }
         }
+    }
+        }
+    }
+}
