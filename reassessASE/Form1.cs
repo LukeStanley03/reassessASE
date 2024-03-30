@@ -80,6 +80,13 @@ namespace reassessASE
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the saveButton control
+        /// <para>The save button is used to open a save dialogue to save the current program in the program window</para>
+        /// </summary>
+        /// <param name="sender">The source of the event</param>
+        /// <param name="e">instance containing the event data</param>
+        /// <exception cref="GPLexception">Handles the exceptions</exception>
         private void saveButton_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog
