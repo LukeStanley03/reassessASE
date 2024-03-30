@@ -124,7 +124,7 @@ namespace reassessASE
                 }
             }
 
-            
+
         }
 
         private void commandLine_KeyDown(object sender, KeyEventArgs e)
@@ -151,6 +151,27 @@ namespace reassessASE
                 {
                     // If there are errors, display them
                     writeString(errors);
+                }
+            }
+            else
+            {
+                // Convert input to an array
+                string[] inputLines = new string[] { input };
+
+                // Initialize newLineIndex
+                int newLineIndex = 0;
+
+                // Initialize skipExecution flag
+                bool skipExecution = false;
+
+                // Parse and execute the individual command
+                string error = MyParser.ParseCommand(inputLines, 0, ref newLineIndex, out skipExecution); // Pass '1' as the line number
+
+                // Check if the command execution should be skipped
+                if (skipExecution)
+                {
+                    // Handle the skipping logic if necessary
+                    // For example, you might want to log a message or simply continue
                 }
             }
         }
