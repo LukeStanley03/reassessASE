@@ -32,6 +32,7 @@
             this.syntaxbutton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.openButton = new System.Windows.Forms.Button();
+            this.commandLine = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // runbutton
@@ -72,11 +73,19 @@
             this.openButton.Text = "Open";
             this.openButton.UseVisualStyleBackColor = true;
             // 
+            // commandLine
+            // 
+            this.commandLine.Location = new System.Drawing.Point(840, 459);
+            this.commandLine.Name = "commandLine";
+            this.commandLine.Size = new System.Drawing.Size(244, 22);
+            this.commandLine.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1310, 546);
+            this.Controls.Add(this.commandLine);
             this.Controls.Add(this.openButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.syntaxbutton);
@@ -84,6 +93,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -93,6 +103,7 @@
         private System.Windows.Forms.Button syntaxbutton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button openButton;
+        private System.Windows.Forms.TextBox commandLine;
     }
 }
 
