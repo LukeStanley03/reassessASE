@@ -44,7 +44,17 @@ namespace reassessASE
 
         private void runbutton_Click(object sender, EventArgs e)
         {
+            String program = programWindow.Text.Trim();
 
+            g.Clear(background_colour);
+            MyParser.ProcessProgram(program);
+
+            //Clear the program window
+            programWindow.Text = "";
+
+            //Signify that something hac been drawn and window system
+            //should update the display
+            Refresh();
         }
 
         private void syntaxbutton_Click(object sender, EventArgs e)
@@ -190,7 +200,7 @@ namespace reassessASE
                 Refresh();
             }
         }
-        }
     }
- }
+}
+ 
 
