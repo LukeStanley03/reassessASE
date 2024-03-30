@@ -42,6 +42,11 @@ namespace reassessASE
             g.Clear(background_colour);
         }
 
+        /// <summary>
+        /// Handles the Click event of the runButton control
+        /// </summary>
+        /// <param name="sender">The source of the event</param>
+        /// <param name="e">instance containing the graphics context</param>
         private void runbutton_Click(object sender, EventArgs e)
         {
             String program = programWindow.Text.Trim();
