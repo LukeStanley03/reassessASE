@@ -142,6 +142,17 @@ namespace reassessASE
 
             // Clear the command line
             commandLine.Text = "";
+
+            if (input.Equals("run", StringComparison.OrdinalIgnoreCase))
+            {
+                String program = programWindow.Text.Trim();
+                string errors = MyParser.ProcessProgram(program); // Execute the commands in the programWindow
+                if (!string.IsNullOrEmpty(errors))
+                {
+                    // If there are errors, display them
+                    writeString(errors);
+                }
+            }
         }
     }
 }
