@@ -33,7 +33,7 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.openButton = new System.Windows.Forms.Button();
             this.commandLine = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.programWindow = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.outputWindow = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -91,13 +91,13 @@
             this.commandLine.TabIndex = 4;
             this.commandLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.commandLine_KeyDown);
             // 
-            // richTextBox1
+            // programWindow
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(44, 95);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(311, 335);
-            this.richTextBox1.TabIndex = 5;
-            this.richTextBox1.Text = "";
+            this.programWindow.Location = new System.Drawing.Point(44, 95);
+            this.programWindow.Name = "programWindow";
+            this.programWindow.Size = new System.Drawing.Size(311, 335);
+            this.programWindow.TabIndex = 5;
+            this.programWindow.Text = "";
             // 
             // richTextBox2
             // 
@@ -164,7 +164,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.outputWindow);
             this.Controls.Add(this.richTextBox2);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.programWindow);
             this.Controls.Add(this.commandLine);
             this.Controls.Add(this.openButton);
             this.Controls.Add(this.saveButton);
@@ -185,7 +185,7 @@
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button openButton;
         private System.Windows.Forms.TextBox commandLine;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox programWindow;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.PictureBox outputWindow;
         private System.Windows.Forms.Label label1;
