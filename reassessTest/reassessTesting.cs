@@ -1,5 +1,3 @@
-﻿
-
 using reassessASE;
 
 namespace reassessTest
