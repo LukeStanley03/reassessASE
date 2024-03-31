@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace reassessASE
 {
-    internal class ClearCommand
+    public class ClearCommand : ICanvasCommand
     {
+        /// <summary>
+        /// Clear the drawing area
+        /// </summary>
+        /// <param name="canvas"></param>
+        public void Execute(Canvas canvas)
+        {
+            canvas.Clear();
+        }
     }
+
 }
