@@ -243,7 +243,35 @@ namespace reassessASE
                     g.DrawEllipse(pen, xPos - radius, yPos - radius, radius * 2, radius * 2);
                 }
             }
+        }
 
+        public void RedColour()
+        {
+            pen = new Pen(Color.Red, 1);
+        }
+
+        /// <summary>
+        /// Sets colour to green
+        /// </summary>
+        public void GreenColour()
+        {
+            pen = new Pen(Color.Green, 1);
+        }
+
+        /// <summary>
+        /// Sets colour to blue
+        /// </summary>
+        public void BlueColour()
+        {
+            pen = new Pen(Color.Blue, 1);
+        }
+
+        /// <summary>
+        /// Sets colour to black
+        /// </summary>
+        public void BlackColour()
+        {
+            pen = new Pen(Color.Black, 1);
         }
     }
 }
