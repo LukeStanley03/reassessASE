@@ -166,6 +166,31 @@ namespace reassessASE
                     g.DrawRectangle(pen, xPos, yPos, width, width);
                 }
             }
+        }
+
+        /// <summary>
+        /// draws rectangle
+        /// </summary>
+        /// <param name="width">width of the rectangle</param>
+        /// <param name="height">height of the rectangle</param>
+        public void Rectangle(int width, int height)
+        {
+            if (width < 0 || height < 0)
+                throw new GPLexception("Invalid rectangle width and height");
+
+            if (g != null)
+            {
+                if (fill)
+                {
+                    //fill the rectangle
+                    g.FillRectangle(pen.Brush, xPos - width / 2, yPos - width / 2, width, height);
+                }
+                else
+                {
+                    //draw the rectangle
+                    g.DrawRectangle(pen, xPos - width / 2, yPos - width / 2, width, height);
+                }
+            }
 
         }
     }
