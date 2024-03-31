@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace reassessASE
 {
-    internal class ResetCommand
+    public class ResetCommand : ICanvasCommand
     {
+        /// <summary>
+        /// Reset cursor to its original position
+        /// </summary>
+        /// <param name="canvas"></param>
+        public void Execute(Canvas canvas)
+        {
+            canvas.Reset();
+            canvas.updateCursor(); // This should update the cursor position on the UI
+        }
     }
 }
