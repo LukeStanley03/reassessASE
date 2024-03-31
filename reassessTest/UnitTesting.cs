@@ -566,4 +566,28 @@ namespace reassessTest
         }
     }
 
+    /// <summary>
+    /// Tests command creation to ensure the correct type of object
+    /// </summary>
+    [TestClass]
+    public class CommandFactoryTests
+    {
+        /// <summary>
+        /// CreateCommand creates MoveToCommand object
+        /// </summary>
+        [TestMethod]
+        public void CreateMoveToCommand_returnsMoveToCommand()
+        {
+            // Arrange
+            string commandType = "moveto";
+            string[] parameters = { "100", "200" };
+
+            // Act
+            var command = CommandFactory.CreateCommand(commandType, parameters);
+
+            // Assert
+            Assert.IsInstanceOfType(command, typeof(MoveToCommand));
+        }
+    }
+
 }
