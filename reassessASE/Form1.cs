@@ -247,7 +247,12 @@ namespace reassessASE
                 // Assign the updated bitmap to the outputWindow to display the text
                 outputWindow.Image = OutputBitmap;
             }
+
+        private void commandLine_TextChanged(object sender, EventArgs e)
+        {
+
         }
+    }
     }
 
  
