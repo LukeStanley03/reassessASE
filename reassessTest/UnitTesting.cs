@@ -590,4 +590,31 @@ namespace reassessTest
         }
     }
 
+
+    /// <summary>
+    /// Tests command execution to ensure the command object performs as expected
+    /// </summary>
+    [TestClass]
+    public class MoveToCommandTests
+    {
+        /// <summary>
+        /// Executes MoveTo command to change yje canvas position
+        /// </summary>
+        [TestMethod]
+        public void Execute_MoveToCommand_changesCanvasPosition()
+        {
+            // Arrange
+            var canvas = new Canvas();
+            var moveToCommand = new MoveToCommand(100, 200);
+
+            // Act
+            moveToCommand.Execute(canvas);
+
+            // Assert
+            Assert.AreEqual(100, canvas.Xpos);
+            Assert.AreEqual(200, canvas.Ypos);
+        }
+
+    }
+
 }
