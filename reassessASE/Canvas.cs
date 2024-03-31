@@ -291,5 +291,14 @@ namespace reassessASE
             else
                 throw new GPLexception("invalid fill parameter");
         }
+
+        /// <summary>
+        /// Clears the drawing area
+        /// </summary>
+        public void Clear()
+        {
+            g.Clear(background_colour);
+        }
+
     }
 }
