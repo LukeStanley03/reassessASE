@@ -191,7 +191,34 @@ namespace reassessASE
                     g.DrawRectangle(pen, xPos - width / 2, yPos - width / 2, width, height);
                 }
             }
+        }
 
+        /// <summary>
+        /// draws triangle
+        /// </summary>
+        /// <param name="width">width of the triangle</param>
+        /// <param name="height">height of the triangle</param>
+        public void Triangle(int width, int height)
+        {
+            if (width < 0 || height < 0)
+                throw new GPLexception("Invalid rectangle width and height");
+
+            //Points used to draw the triangle
+            Point[] points = { new Point(xPos, yPos - height / 2), new Point(xPos - width / 2, yPos + height / 2), new Point(xPos + width / 2, yPos + height / 2) };
+
+            if (g != null)
+            {
+                if (fill)
+                {
+                    //fill the triangle
+                    g.FillPolygon(pen.Brush, points);
+                }
+                else
+                {
+                    //draw the triangle
+                    g.DrawPolygon(pen, points);
+                }
+            }
         }
     }
 }
