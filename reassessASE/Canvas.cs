@@ -108,5 +108,21 @@ namespace reassessASE
             penColour = Color.FromArgb(red, green, blue);
             pen = new Pen(penColour, 1);
         }
+
+        /// <summary>
+        /// Moves pen position
+        /// </summary>
+        /// <param name="x">position x</param>
+        /// <param name="y">position y</param>
+        public void MoveTo(int x, int y)
+        {
+            penPosition = new Point(x, y);
+
+            if (x < 0 || x > XCanvasSize || y < 0 || y > XCanvasSize)
+                throw new GPLexception("invalid screen position Canvas.MoveTo");
+            //update the pen position as it has moved to the end of the line
+            xPos = x;
+            yPos = y;
+        }
     }
 }
