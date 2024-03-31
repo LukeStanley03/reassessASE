@@ -6,7 +6,26 @@ using System.Threading.Tasks;
 
 namespace reassessASE
 {
-    internal class SetFillCommand
+    public class SetFillCommand : ICanvasCommand
     {
+        private string fillSetting;
+
+        /// <summary>
+        /// Set the fill on either ON or OFF
+        /// </summary>
+        /// <param name="fillSetting"></param>
+        public SetFillCommand(string fillSetting)
+        {
+            this.fillSetting = fillSetting;
+        }
+
+        /// <summary>
+        /// Set the fill
+        /// </summary>
+        /// <param name="canvas"></param>
+        public void Execute(Canvas canvas)
+        {
+            canvas.SetFill(fillSetting);
+        }
     }
 }
