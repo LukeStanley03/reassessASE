@@ -64,6 +64,7 @@
     <Compile Include="GreenColourCommand.cs" />
     <Compile Include="ICanvasCommand.cs" />
     <Compile Include="MethodDefiniton.cs" />
+    <Compile Include="MoveToCommand.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

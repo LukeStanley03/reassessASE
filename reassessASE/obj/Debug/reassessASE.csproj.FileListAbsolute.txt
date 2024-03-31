@@ -1,0 +1,5 @@
+C:\Users\LukeJ\OneDrive\Documents\aselastsub\reassessASE\reassessASE\obj\Debug\reassessASE.csproj.AssemblyReference.cache
+C:\Users\LukeJ\OneDrive\Documents\aselastsub\reassessASE\reassessASE\obj\Debug\reassessASE.Form1.resources
+C:\Users\LukeJ\OneDrive\Documents\aselastsub\reassessASE\reassessASE\obj\Debug\reassessASE.Properties.Resources.resources
+C:\Users\LukeJ\OneDrive\Documents\aselastsub\reassessASE\reassessASE\obj\Debug\reassessASE.csproj.GenerateResource.cache
+C:\Users\LukeJ\OneDrive\Documents\aselastsub\reassessASE\reassessASE\obj\Debug\reassessASE.csproj.CoreCompileInputs.cache
