@@ -142,5 +142,31 @@ namespace reassessASE
             xPos = toX;
             yPos = toY;
         }
+
+
+        /// <summary>
+        /// draw a square 
+        /// </summary>
+        /// <param name="width">size of the square length</param>
+        public void Square(int width)
+        {
+            if (width < 0)
+                throw new GPLexception("Invalid square width");
+
+            if (g != null)
+            {
+                if (fill)
+                {
+                    //fill the square
+                    g.FillRectangle(pen.Brush, xPos - width / 2, yPos - width / 2, width, width);
+                }
+                else
+                {
+                    //draw the square
+                    g.DrawRectangle(pen, xPos, yPos, width, width);
+                }
+            }
+
+        }
     }
 }
