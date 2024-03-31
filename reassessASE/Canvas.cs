@@ -220,5 +220,30 @@ namespace reassessASE
                 }
             }
         }
+
+        /// <summary>
+        /// draws a circle
+        /// </summary>
+        /// <param name="radius">radius of the circle</param>
+        public virtual void Circle(int radius)
+        {
+            if (radius < 0)
+                throw new GPLexception("invalid circle radius");
+
+            if (g != null)
+            {
+                if (fill)
+                {
+                    //fill the circle
+                    g.FillEllipse(pen.Brush, xPos - radius, yPos - radius, radius * 2, radius * 2);
+                }
+                else
+                {
+                    //draw the circle
+                    g.DrawEllipse(pen, xPos - radius, yPos - radius, radius * 2, radius * 2);
+                }
+            }
+
+        }
     }
 }
