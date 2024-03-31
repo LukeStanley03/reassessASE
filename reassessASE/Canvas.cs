@@ -41,5 +41,28 @@ namespace reassessASE
 
         //Variables to handle animated star
 
+        public Canvas()
+        {
+            XCanvasSize = XSIZE;
+            YCanvasSize = YSIZE;
+        }
+
+        /// <summary>
+        /// Constructor initialises canvas to black pen at 0,0
+        /// </summary>
+        /// <param name="g">Graphics context of place to draw on</param>
+        public Canvas(Form CallingForm, Graphics gin, Graphics cursorG)
+        {
+            this.g = gin;
+            this.cursorG = cursorG;
+            XCanvasSize = XSIZE;
+            YCanvasSize = YSIZE;
+            xPos = yPos = 0;
+            pen = new Pen(Color.Black, 2);
+
+            this.CallingForm = CallingForm;
+        }
+
+
     }
 }
