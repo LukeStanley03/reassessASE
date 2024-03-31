@@ -350,5 +350,220 @@ namespace reassessTest
 
     }
 
+    /// <summary>
+    /// Unit tests for Parser class
+    /// </summary>
+    [TestClass]
+    public class ParserTests
+    {
+        //Setup variable declarations
+        private Parser parser;
+
+        /// <summary>
+        /// Sets up the required resources
+        /// </summary>
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            parser = new Parser(new Canvas());
+        }
+        /// <summary>
+        /// Tests if invalid command ProcessProgram returns appropriate error message
+        /// </summary>
+        [TestMethod]
+        public void ProcessProgram_shouldReturnErrorForInvalidCommand()
+        {
+            // Arrange
+            string invalidCommand = "crcle 50";
+            string expectedErrorMessage = "Unknown command 'crcle'";
+
+            // Act
+            string result = parser.ProcessProgram(invalidCommand);
+
+            // Assert
+            Assert.IsTrue(result.Contains(expectedErrorMessage), "The error message for an invalid command was not as expected.");
+        }
+
+        /// <summary>
+        /// Tests if command with invalid parameters, ProcessProgram returns appropriate error message
+        /// </summary>
+        [TestMethod]
+        public void ProcessProgram_shouldReturnErrorForInvalidParameters()
+        {
+            // Arrange
+            string commandWithInvalidParams = "circle x";
+            string expectedErrorMessage = "Invalid parameter";
+
+            // Act
+            string result = parser.ProcessProgram(commandWithInvalidParams);
+
+            // Assert
+            Assert.IsTrue(result.Contains(expectedErrorMessage), "The error message for invalid parameters was not as expected.");
+        }
+
+        /// <summary>
+        /// Tests if while loop works correctly
+        /// </summary>
+        [TestMethod]
+        public void ProcessProgram_shouldExecuteWhileLoopCorrectly()
+        {
+            // Arrange
+            string programWithWhileLoop = @"
+            count = 0
+            while count < 3
+                drawto count * 10, count * 10
+                count = count + 1
+            endwhile";
+
+            string expectedOutcome = ""; // This should be the expected outcome or error message
+
+            // Act
+            string result = parser.ProcessProgram(programWithWhileLoop);
+
+            // Assert
+            Assert.AreEqual(expectedOutcome, result, "The while loop did not execute as expected.");
+        }
+
+        /// <summary>
+        /// Tests whether ProcessProgram method handles variables correctly
+        /// </summary>
+        [TestMethod]
+        public void ProcessProgram_shouldHandleVariableCorrectly()
+        {
+            // Arrange
+            string programWithVariable = @"
+            size = 10
+            circle size";
+
+            string expectedOutcome = ""; // Expected outcome or error message
+
+            // Act
+            string result = parser.ProcessProgram(programWithVariable);
+
+            // Assert
+            Assert.AreEqual(expectedOutcome, result, "The parser did not handle the variable correctly.");
+        }
+
+        /// <summary>
+        /// Tests whether ProcessProgram method handles expressions correctly
+        /// </summary>
+        [TestMethod]
+        public void ProcessProgram_shouldHandleExpressionCorrectly()
+        {
+            // Arrange
+            string programWithExpression = @"
+            count = 5
+            size = count * 10
+            circle size";
+
+            string expectedOutcome = ""; // Expected outcome or error message
+            //int expectedSize = 50; // As count is 5 and size is count * 10
+
+            // Act
+            string result = parser.ProcessProgram(programWithExpression);
+
+            //Assert
+            Assert.AreEqual(expectedOutcome, result, "There were errors processing the program with an expression.");
+        }
+
+        /// <summary>
+        /// Tests whether while loop with varibalesProcessProgram method handles expressions correctly
+        /// </summary>
+        [TestMethod]
+        public void LoopWithVariable_shouldExecuteCorrectly()
+        {
+            // Arrange
+            string loopProgram = @"
+            count = 1
+            while count < 5
+                circle 10
+                count = count + 1
+            endwhile";
+
+            string expectedOutcome = ""; // Expected outcome or error message
+            //int expectedRadius = 60; // Final expected radius value
+            //int expectedCount = 5; // Final expected count value
+
+            // Act
+            string result = parser.ProcessProgram(loopProgram);
+
+            // Assert
+            Assert.AreEqual(expectedOutcome, result, "There were errors processing the program with a loop.");
+        }
+
+        /// <summary>
+        /// Tests whether if statement execute the inner command correctly
+        /// </summary>
+        [TestMethod]
+        public void IfStatement_shouldExecuteInnerCommand()
+        {
+            // Arrange
+            string program = @"
+            if 100 < 200
+                circle 100
+            endif";
+
+            string expectedOutcome = ""; // Expected outcome or error message
+
+            // Act
+            string result = parser.ProcessProgram(program);
+
+            // Assert
+            Assert.AreEqual(expectedOutcome, result, "There were errors processing the program with an if statement.");
+        }
+
+        /// <summary>
+        /// Tests whether syntax checking returns error if command is invalid
+        /// </summary>
+        [TestMethod]
+        public void CheckSyntax_invalidCommand_shouldReturnError()
+        {
+            // Arrange
+            string invalidProgram = "crcle 50"; // Example of an invalid command
+
+            // Act
+            string result = parser.CheckSyntax(invalidProgram);
+
+            // Assert
+            Assert.IsFalse(string.IsNullOrEmpty(result), "Expected an error for invalid command, but got none.");
+            // Assert.AreEqual("Expected error message", result.Trim());
+        }
+
+        /// <summary>
+        /// Tests whether syntax checking returns no error if command is valid
+        /// </summary>
+        [TestMethod]
+        public void CheckSyntax_validCommand_shouldNotReturnError()
+        {
+            // Arrange
+            string validProgram = "circle 50"; // Example of a valid command
+
+            // Act
+            string result = parser.CheckSyntax(validProgram);
+
+            // Assert
+            Assert.IsTrue(string.IsNullOrEmpty(result), "Expected no error for valid command, but found one.");
+        }
+
+        /// <summary>
+        /// Tests whether method with no parameters execute without error
+        /// </summary>
+        [TestMethod]
+        public void Method_noParameters_shouldExecuteWithoutError()
+        {
+            // Arrange
+            string programWithMethod = @"
+            method myCircle()
+                circle 50
+            endmethod
+            myCircle()";
+
+            // Act
+            string result = parser.ProcessProgram(programWithMethod);
+
+            // Assert
+            Assert.AreEqual(string.Empty, result, "Method with no parameters should execute without error.");
+        }
+    }
 
 }
