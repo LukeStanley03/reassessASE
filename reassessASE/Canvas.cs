@@ -27,5 +27,19 @@ namespace reassessASE
         int XCanvasSize, YCanvasSize;
         Pen pen;
         public int xPos, yPos; // pen position when drawing
+
+        protected Color background_colour = Color.Gray;
+
+        public bool fill = false;
+
+        //Graphics g;
+        //Pen pen = new Pen(Color.Black, 1);        
+        //int xPos = 0, yPos = 0; // pen position when drawing
+
+        Point penPosition = new Point(10, 10);
+        Color penColour;
+
+        //Variables to handle animated star
+
     }
 }
