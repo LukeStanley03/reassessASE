@@ -273,5 +273,23 @@ namespace reassessASE
         {
             pen = new Pen(Color.Black, 1);
         }
+
+        /// <summary>
+        /// makes shapes filled and not outlined
+        /// </summary>
+        /// <param name="input">Choice of either on or off</param>
+        public void SetFill(string input)
+        {
+            if (input.Equals("on") == true)
+            {
+                fill = true;
+            }
+            else if (input.Equals("off") == true)
+            {
+                fill = false;
+            }
+            else
+                throw new GPLexception("invalid fill parameter");
+        }
     }
 }
