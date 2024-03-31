@@ -8,7 +8,7 @@ namespace reassessASE
 {
     public class Parser
     {
-        private Canvas myCanvas;
+        private Canvas MyCanvas;
 
         //collection set of valid commands 
         private HashSet<string> validCommands = new HashSet<string>
