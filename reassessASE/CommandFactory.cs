@@ -93,8 +93,6 @@ namespace reassessASE
                     return new ClearCommand();
 
                
-
-
                 default:
                     throw new GPLexception($"Unknown command type: {commandType}");
             }
