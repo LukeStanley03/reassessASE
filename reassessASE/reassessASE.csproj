@@ -67,6 +67,14 @@
     <Compile Include="Parser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RectangleCommand.cs" />
+    <Compile Include="RedColourCommand.cs" />
+    <Compile Include="ResetCommand.cs" />
+    <Compile Include="SetColourCommand.cs" />
+    <Compile Include="SetFillCommand.cs" />
+    <Compile Include="SquareCommand.cs" />
+    <Compile Include="TriangleCommand.cs" />
+    <Compile Include="UpdateCursorCommand.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
