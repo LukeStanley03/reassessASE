@@ -62,7 +62,26 @@ namespace reassessASE
 
             this.CallingForm = CallingForm;
         }
+        /// <summary>
+        /// read only property for xpos of cursor
+        /// </summary>
+        public int Xpos
+        {
+            get
+            {
+                return xPos;
+            }
+        }
 
-
+        /// <summary>
+        /// read only property for ypos of cursor
+        /// </summary>
+        public int Ypos
+        {
+            get
+            {
+                return yPos;
+            }
+        }
     }
 }
