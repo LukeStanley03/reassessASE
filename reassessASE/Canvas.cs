@@ -94,5 +94,19 @@ namespace reassessASE
             cursorG.DrawRectangle(p, xPos, yPos, 4, 4);
             CallingForm.Refresh();
         }
+
+        /// <summary>
+        /// sets the RGB colours
+        /// </summary>
+        /// <param name="red">integer value of red</param>
+        /// <param name="green">integer value of green</param>
+        /// <param name="blue">integer value of blue</param>
+        public void SetColour(int red, int green, int blue)
+        {
+            if (red > 255 || green > 255 || blue > 255)
+                throw new GPLexception("Invalid colour");
+            penColour = Color.FromArgb(red, green, blue);
+            pen = new Pen(penColour, 1);
+        }
     }
 }
