@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace reassessASE
 {
-    internal class UpdateCursorCommand
+    public class UpdateCursorCommand : ICanvasCommand
     {
+        /// <summary>
+        /// Locate cursor to the current position
+        /// </summary>
+        /// <param name="canvas"></param>
+        public void Execute(Canvas canvas)
+        {
+            canvas.updateCursor();
+        }
     }
+
 }
