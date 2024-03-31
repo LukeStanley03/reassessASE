@@ -124,5 +124,23 @@ namespace reassessASE
             xPos = x;
             yPos = y;
         }
+
+        /// <summary>
+        /// draw a line from current pen position (xPos,yPos)
+        /// </summary>
+        /// <param name="toX">x position to draw to</param>
+        /// <param name="toY">y position to draw to</param>
+        public void DrawTo(int toX, int toY)
+        {
+            if (toX < 0 || toX > XCanvasSize || toY < 0 || toX > XCanvasSize)
+                throw new GPLexception("invalid screen position Canvas.DrawTo");
+            if (g != null) //if from a unit test then g will be null
+                //draw the line
+                g.DrawLine(pen, xPos, yPos, toX, toY);
+
+            //update the pen position as it has moved to the end of the line
+            xPos = toX;
+            yPos = toY;
+        }
     }
 }
