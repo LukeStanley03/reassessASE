@@ -3,3 +3,8 @@ C:\Users\LukeJ\OneDrive\Documents\aselastsub\reassessASE\reassessASE\obj\Debug\r
 C:\Users\LukeJ\OneDrive\Documents\aselastsub\reassessASE\reassessASE\obj\Debug\reassessASE.Properties.Resources.resources
 C:\Users\LukeJ\OneDrive\Documents\aselastsub\reassessASE\reassessASE\obj\Debug\reassessASE.csproj.GenerateResource.cache
 C:\Users\LukeJ\OneDrive\Documents\aselastsub\reassessASE\reassessASE\obj\Debug\reassessASE.csproj.CoreCompileInputs.cache
+C:\Users\LukeJ\OneDrive\Documents\aselastsub\reassessASE\reassessASE\bin\Debug\reassessASE.exe.config
+C:\Users\LukeJ\OneDrive\Documents\aselastsub\reassessASE\reassessASE\bin\Debug\reassessASE.exe
+C:\Users\LukeJ\OneDrive\Documents\aselastsub\reassessASE\reassessASE\bin\Debug\reassessASE.pdb
+C:\Users\LukeJ\OneDrive\Documents\aselastsub\reassessASE\reassessASE\obj\Debug\reassessASE.exe
+C:\Users\LukeJ\OneDrive\Documents\aselastsub\reassessASE\reassessASE\obj\Debug\reassessASE.pdb
