@@ -83,5 +83,16 @@ namespace reassessASE
                 return yPos;
             }
         }
+
+        /// <summary>
+        /// move the cursor display to the current drawing position
+        /// </summary>
+        public void updateCursor()
+        {
+            cursorG.Clear(Color.Transparent);
+            Pen p = new Pen(Color.Red, 1);
+            cursorG.DrawRectangle(p, xPos, yPos, 4, 4);
+            CallingForm.Refresh();
+        }
     }
 }
