@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace reassessASE
 {
-    internal class GreenColourCommand
+    public class GreenColourCommand : ICanvasCommand
     {
+        /// <summary>
+        /// Set the colour to green
+        /// </summary>
+        /// <param name="canvas"></param>
+        public void Execute(Canvas canvas)
+        {
+            canvas.GreenColour();
+        }
     }
 }
