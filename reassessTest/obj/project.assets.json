@@ -598,6 +598,15 @@
             "related": ".xml"
           }
         }
+      },
+      "reassessASE/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/reassessASE.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/reassessASE.dll": {}
+        }
       }
     }
   },
@@ -2292,6 +2301,11 @@
         "system.threading.tasks.4.3.0.nupkg.sha512",
         "system.threading.tasks.nuspec"
       ]
+    },
+    "reassessASE/1.0.0": {
+      "type": "project",
+      "path": "../reassessASE/reassessASE.csproj",
+      "msbuildProject": "../reassessASE/reassessASE.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2299,7 +2313,8 @@
       "MSTest.TestAdapter >= 2.2.10",
       "MSTest.TestFramework >= 2.2.10",
       "Microsoft.NET.Test.Sdk >= 17.5.0",
-      "coverlet.collector >= 3.2.0"
+      "coverlet.collector >= 3.2.0",
+      "reassessASE >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2328,7 +2343,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\LukeJ\\OneDrive\\Documents\\aselastsub\\reassessASE\\reassessASE\\reassessASE.csproj": {
+              "projectPath": "C:\\Users\\LukeJ\\OneDrive\\Documents\\aselastsub\\reassessASE\\reassessASE\\reassessASE.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

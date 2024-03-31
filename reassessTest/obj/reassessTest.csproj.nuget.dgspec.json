@@ -4,6 +4,21 @@
     "C:\\Users\\LukeJ\\OneDrive\\Documents\\aselastsub\\reassessASE\\reassessTest\\reassessTest.csproj": {}
   },
   "projects": {
+    "C:\\Users\\LukeJ\\OneDrive\\Documents\\aselastsub\\reassessASE\\reassessASE\\reassessASE.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\LukeJ\\OneDrive\\Documents\\aselastsub\\reassessASE\\reassessASE\\reassessASE.csproj",
+        "projectName": "reassessASE",
+        "projectPath": "C:\\Users\\LukeJ\\OneDrive\\Documents\\aselastsub\\reassessASE\\reassessASE\\reassessASE.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
     "C:\\Users\\LukeJ\\OneDrive\\Documents\\aselastsub\\reassessASE\\reassessTest\\reassessTest.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -27,7 +42,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\LukeJ\\OneDrive\\Documents\\aselastsub\\reassessASE\\reassessASE\\reassessASE.csproj": {
+                "projectPath": "C:\\Users\\LukeJ\\OneDrive\\Documents\\aselastsub\\reassessASE\\reassessASE\\reassessASE.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

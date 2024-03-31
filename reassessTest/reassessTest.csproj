@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -17,9 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="UnitTesting.cs">
-      <CustomToolNamespace></CustomToolNamespace>
-    </Compile>
+	  <ProjectReference Include ="C:\Users\LukeJ\OneDrive\Documents\aselastsub\reassessASE\reassessASE\reassessASE.csproj"/>
   </ItemGroup>
 
 </Project>

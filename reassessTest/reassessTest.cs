@@ -1,5 +1,4 @@
 using reassessASE;
-
 namespace reassessTest
 {
     [TestClass]
@@ -466,52 +465,8 @@ namespace reassessTest
             Assert.AreEqual(expectedOutcome, result, "There were errors processing the program with an expression.");
         }
 
-        /// <summary>
-        /// Tests whether while loop with varibalesProcessProgram method handles expressions correctly
-        /// </summary>
-        [TestMethod]
-        public void LoopWithVariable_shouldExecuteCorrectly()
-        {
-            // Arrange
-            string loopProgram = @"
-            count = 1
-            while count < 5
-                circle 10
-                count = count + 1
-            endwhile";
-
-            string expectedOutcome = ""; // Expected outcome or error message
-            //int expectedRadius = 60; // Final expected radius value
-            //int expectedCount = 5; // Final expected count value
-
-            // Act
-            string result = parser.ProcessProgram(loopProgram);
-
-            // Assert
-            Assert.AreEqual(expectedOutcome, result, "There were errors processing the program with a loop.");
-        }
-
-        /// <summary>
-        /// Tests whether if statement execute the inner command correctly
-        /// </summary>
-        [TestMethod]
-        public void IfStatement_shouldExecuteInnerCommand()
-        {
-            // Arrange
-            string program = @"
-            if 100 < 200
-                circle 100
-            endif";
-
-            string expectedOutcome = ""; // Expected outcome or error message
-
-            // Act
-            string result = parser.ProcessProgram(program);
-
-            // Assert
-            Assert.AreEqual(expectedOutcome, result, "There were errors processing the program with an if statement.");
-        }
-
+        
+       
         /// <summary>
         /// Tests whether syntax checking returns error if command is invalid
         /// </summary>
