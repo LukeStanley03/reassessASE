@@ -300,5 +300,14 @@ namespace reassessASE
             g.Clear(background_colour);
         }
 
+        /// <summary>
+        /// Moves pen to initial position at the top left of the screen
+        /// </summary>
+        public void Reset()
+        {
+            xPos = 0;
+            yPos = 0;
+        }
+
     }
 }
